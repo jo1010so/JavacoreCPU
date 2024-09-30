@@ -201,24 +201,23 @@ HLT
 ```
 
 向代码段写入所有的指令
-![](Pasted%20image%2020240923212708.png)
+![](attachments/Pasted image 20240923212708.png)
 
 MOV AH,127  
 MOV BL,127 
-移位指令，标志寄存器各个标志位均为false ， AX,BX,CX,DX 数据内容如下![](Pasted%20image%2020240923212829.png)
+移位指令，标志寄存器各个标志位均为false ， AX,BX,CX,DX 数据内容如下![Pasted image 20240923212829](attachments/Pasted image 20240923212829.png)
 
 ADD BL,AH
 127+127=254 超出8位寄存器表示的范围，则OF为true ，运算结果在BL中，BL补码表示为负数，则符号标志位SF为true
-提示出**运算发生溢出**
-![](Pasted%20image%2020240923213305.png)
+提示出**运算发生溢出**![Pasted image 20240923213305](attachments/Pasted image 20240923213305.png)
 
 SHR AH,3 
 AH寄存器地位的‘1’移到了CF位上，则CF为true
-![](Pasted%20image%2020240923213517.png)
+![Pasted image 20240923213517](attachments/Pasted image 20240923213517.png)
 
 MOV AX,30000  
 MOV BX,32000  
-![](Pasted%20image%2020240923213628.png)
+![Pasted image 20240923213628](attachments/Pasted image 20240923213628.png)
 
 MUL BX
 * 运算前 ：
@@ -227,14 +226,14 @@ MUL BX
 * 运算后：
 	AX ：[0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 	DX ：[0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0]
-默认AX为被乘数，**结果高16位存放在DX中，低16位存放在AX中**
+	默认AX为被乘数，**结果高16位存放在DX中，低16位存放在AX中**
 
-![](Pasted%20image%2020240923213717.png)
+![Pasted image 20240923213717](attachments/Pasted image 20240923213717.png)
 
 MOV AH,0  
 MOV AL,6  
 MOV BL,3
-![](Pasted%20image%2020240923214236.png)
+![Pasted image 20240923214236](attachments/Pasted image 20240923214236.png)
 
 MUL BL
 * 运算前
@@ -242,13 +241,14 @@ MUL BL
 * 运算后
   AX  ：18   &ensp;&ensp;&ensp;&ensp;    默认AL为被乘数，结果存放在AX中
   
-![](Pasted%20image%2020240923214326.png)
+
+![Pasted image 20240923214326](attachments/Pasted image 20240923214326.png)
 
 SHR AX,3  
 AND AL,0 
 运行结果AL为0，则标志位ZF为true，有偶数个‘1’，则PF为true
-![](Pasted%20image%2020240923214635.png)
+![Pasted image 20240923214635](attachments/Pasted image 20240923214635.png)
 
 HLT
 程序运行结束，显示出各个寄存器的数值
-![](Pasted%20image%2020240923215008.png)
+![Pasted image 20240923215008](attachments/Pasted image 20240923215008.png)
